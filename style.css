@@ -219,3 +219,27 @@ body {
     margin-bottom: 0px;
   }
 }
+
+.js .js-tab-content section {
+  display: none;
+}
+
+.js-tab-content section.active {
+  display: block !important;
+  animation: show 0.5s forwards;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animals-list li {
+  cursor: pointer;
+}
