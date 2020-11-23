@@ -278,6 +278,20 @@ body {
   font-weight: bold;
 }
 
+.tooltip {
+  position: absolute;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 0 2px #fb5, 0 0 0 6px rgba(0, 0, 0, 0.6);
+  padding: 0.5rem;
+  color: white;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: bold;
+  font-size: 0.875rem;
+  max-width: 175px;
+  border-radius: 2px;
+}
+
 @media (max-width: 700px) {
   .grid-container {
     grid-template-columns: 1fr;
