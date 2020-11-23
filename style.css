@@ -32,6 +32,10 @@ body {
   grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
 }
 
+[data-modal='open'] {
+  cursor: pointer;
+}
+
 .menu {
   grid-column: 3/5;
   margin-top: 2rem;
