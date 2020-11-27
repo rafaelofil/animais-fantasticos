@@ -369,6 +369,9 @@ body {
     position: static;
     border: none;
   }
+  .number-grid {
+    grid-column: 1;
+  }
 }
 
 .js [data-tab='content'] section {
@@ -486,4 +489,25 @@ body {
 
 [data-menu='button'] {
   display: none;
+}
+
+/* Numbers */
+.number-grid {
+  display: grid;
+  grid-column: 2/4;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+
+.number-grid h3 {
+  font-family: 'Playfair Display SC';
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.number-grid span {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #e54;
 }
