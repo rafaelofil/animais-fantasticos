@@ -1,19 +1,34 @@
-export default function initAnimationScroll() {
-  const sections = document.querySelectorAll('[data-anime="scroll"]');
+export default class AnimationScroll {
+  constructor(sections) {
+    this.sections = document.querySelectorAll(sections);
+    this.halfWindow = window.innerHeight * 0.6;
 
-  if (sections.length) {
-    const halfWindow = window.innerHeight * 0.6;
+    this.checkDistance = this.checkDistance.bind(this);
+  }
 
-    function animationScroll() {
-      sections.forEach((section) => {
-        const sectionTop = section.getBoundingClientRect().top;
-        const isSectionVisible = sectionTop - halfWindow < 0;
-        if (isSectionVisible) {
-          section.classList.add('active');
-        }
-      });
-    }
-    animationScroll();
-    window.addEventListener('scroll', animationScroll);
+  getDistance() {
+    this.distance = [...this.sections].map((section) => {
+      const offset = section.offsetTop;
+      return {
+        element: section,
+        offset: Math.floor(offset - this.halfWindow),
+      };
+    });
+  }
+
+  checkDistance() {
+    this.distance.forEach((item) => {
+      if (window.pageYOffset > item.offset) {
+        item.element.classList.add('active');
+      } else if (item.element.classList.contains('active')) {
+        item.element.classList.remove('active');
+      }
+    });
+  }
+
+  init() {
+    this.getDistance();
+    this.checkDistance();
+    window.addEventListener('scroll', this.checkDistance);
   }
 }
