@@ -1,4 +1,4 @@
-export default function initAnimeNumbers() {
+export default function initAnimateNumbers() {
   function animeNumbers() {
     const numbers = document.querySelectorAll('[data-number]');
 
